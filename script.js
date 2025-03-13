@@ -6,6 +6,7 @@ let ladoDireito = document.querySelector('.d-1-direito');
 let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
+let quadrado = '';
 
 function comecarEtapa(){
     let etapa = etapas[etapaAtual];
@@ -13,7 +14,11 @@ function comecarEtapa(){
     let numeroHtml = '';
 
     for(let i = 0; i < etapa.numeros; i++){
-        numeroHtml += '<div class="quadrado pisca"></div>';
+        if(i === 0){
+            numeroHtml += '<div class="quadrado pisca"></div>';
+        } else{
+            numeroHtml += '<div class="quadrado"></div>';
+        }
     }
 
     seuVotoPara.style.display = 'none';
@@ -23,8 +28,23 @@ function comecarEtapa(){
     numeros.innerHTML = numeroHtml;
 }
 
-function clicou(n){
+function atualizarInterface(){
 
+}
+
+function clicou(n){
+    let elQuadrado = document.querySelector('.quadrado.pisca');
+    if(elQuadrado !== null){
+        elQuadrado.innerHTML = n;
+        quadrado = `${quadrado}${n}`;
+
+        elQuadrado.classList.remove('pisca');
+        if(elQuadrado.nextElementSibling !== null){
+            elQuadrado.nextElementSibling.classList.add('pisca');
+        } else{
+            atualizarInterface();
+        }
+    }
 }
 
 function branco(){
