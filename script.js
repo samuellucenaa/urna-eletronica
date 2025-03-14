@@ -29,7 +29,25 @@ function comecarEtapa(){
 }
 
 function atualizarInterface(){
+    let etapa = etapas[etapaAtual];
+    let candidato = etapa.candidatos.filter((item)=>{
+        if(item.numero === quadrado){
+            return true;
+        } else{
+            return false;
+        }
+    })
 
+    if(candidato.length > 0){
+        candidato = candidato[0]
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        info.innerHTML = `Nome: ${candidato.nome} <br> Partido: ${candidato.partido}`;
+    } else{
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        info.innerHTML = '<div class="aviso--grande pisca">VOTO NULO</div>';
+    }
 }
 
 function clicou(n){
