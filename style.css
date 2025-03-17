@@ -168,4 +168,5 @@ body{
     display: flex;
     justify-content: center;
     margin: auto;
+    font-weight: bold;
 }

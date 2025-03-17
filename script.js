@@ -11,7 +11,7 @@ let vBranco = false;
 
 function comecarEtapa(){
     let etapa = etapas[etapaAtual];
-
+    quadrado = '';
     let numeroHtml = '';
     vBranco = false;
 
@@ -100,17 +100,17 @@ function confirma(){
 
     if(votoConfirmado){
         etapaAtual++;
-        comecarEtapa();
+        if(etapaAtual < etapas.length){
+            comecarEtapa();
+        } else {
+            document.querySelector('.tela').innerHTML = '<div class="aviso--grande pisca">FIM</div>';
+        }
     } else{
-        console.log('OI')
+        seuVotoPara.style.display = 'none';
+        info.innerHTML = '';
+        ladoDireito.innerHTML = '';
+        aviso.style.display = 'none';
     }
-
-    // seuVotoPara.style.display = 'none';
-    // aviso.style.display = 'none';
-    // numeros.innerHTML = '';
-    // cargo.innerHTML = '';
-    // ladoDireito.style.display = 
-    // info.innerHTML = '<div class="aviso--grande">VOTO CONFIRMADO</div>';
 }
 
 comecarEtapa();
