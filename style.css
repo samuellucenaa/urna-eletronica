@@ -31,6 +31,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     border: 2px solid #555;
+    height: 440px;
 }
 
 .d-1{
